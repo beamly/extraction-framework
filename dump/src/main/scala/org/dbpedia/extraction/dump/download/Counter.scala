@@ -34,5 +34,5 @@ object Counter {
    * Uses getContentLengthLong() if available (new in JDK 7). Before JDK 7, only getContentLength() 
    * is available which returns size -1 for files >= 2GB.
    */
-  def getContentLength(conn : URLConnection): Long = contentLengthMethod.invoke(conn).asInstanceOf[Long]
+   def getContentLength(conn: URLConnection): Long = contentLengthMethod.invoke(conn).asInstanceOf[java.lang.Integer].toLong
 }

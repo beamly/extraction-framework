@@ -65,7 +65,7 @@ public class WikipediaDumpParser
    * This parser is currently only compatible with the 0.6 format.
    * TODO: make the parser smarter, ignore elements that are not present in older formats.
    */
-  private final String _namespace = "http://www.mediawiki.org/xml/export-0.6/";
+  private final String _namespace = null; //"http://www.mediawiki.org/xml/export-0.6/";
   
   /**
    * Language used to parse page titles. If null, get language from siteinfo.
@@ -215,8 +215,10 @@ public class WikipediaDumpParser
     
     if (title.namespace().code() != nsCode)
     {
-      Namespace expected = Namespace.values().apply(nsCode);
-      logger.log(Level.WARNING, "Error parsing title: found namespace "+title.namespace()+", expected "+expected+" in title "+titleStr);
+      try {
+        Namespace expected = Namespace.values().apply(nsCode);
+        logger.log(Level.WARNING, "Error parsing title: found namespace "+title.namespace()+", expected "+expected+" in title "+titleStr);
+      } catch (Throwable t) { }
     }
 
     //Read page id

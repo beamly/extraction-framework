@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.compiler.version>1.6</java.compiler.version>
+        <java.compiler.version>1.7</java.compiler.version>
         <scala.compiler.Xmx>-Xmx1024m</scala.compiler.Xmx>
         <skipTests>true</skipTests>
     </properties>
